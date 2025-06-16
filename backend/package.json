@@ -6,13 +6,15 @@
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
+    "vercel-build": "npm run build",
     "postinstall": "npm run build",
     "migrate": "knex --knexfile src/db/knexfile.ts migrate:latest",
     "seed": "knex --knexfile src/db/knexfile.ts seed:run",
     "migrate:prod": "NODE_ENV=production knex --knexfile dist/db/knexfile.js migrate:latest",
     "seed:prod": "NODE_ENV=production knex --knexfile dist/db/knexfile.js seed:run",
     "deploy": "npm run build && npm run migrate:prod && npm run seed:prod && npm start",
-    "test:db": "ts-node src/db/testConnection.ts"  },
+    "test:db": "ts-node src/db/testConnection.ts"
+  },
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^6.0.0",
@@ -32,6 +34,7 @@
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.4.2",
     "@types/pg": "^8.10.2",
+    "@vercel/node": "^5.2.2",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.0"
