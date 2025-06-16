@@ -45,17 +45,27 @@ app.use((req, res, next) => {
     console.log('📤 Response Body:', JSON.stringify(responseBody, null, 2));
     console.log('─'.repeat(80));
   });
-
   next();
 });
 
-app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
-app.use('/rooms', roomRoutes);
-app.use('/students', studentRoutes);
-app.use('/payments', paymentRoutes);
-app.use('/chambres', roomRoutes);
-app.use('/etudiants', studentRoutes);
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    message: 'University Room Management Backend is running!',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+// API routes
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/rooms', roomRoutes);
+app.use('/api/students', studentRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/chambres', roomRoutes);
+app.use('/api/etudiants', studentRoutes);
 
 app.use(errorHandler);
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
