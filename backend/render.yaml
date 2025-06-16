@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: university-backend
+    runtime: node
+    buildCommand: npm install && npx tsc
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_HOST
+        value: aws-0-eu-north-1.pooler.supabase.com
+      - key: DB_USER
+        value: postgres.nezwavnslymfssrlsxbj
+      - key: DB_PASSWORD
+        value: mkounga10
+      - key: DB_NAME
+        value: postgres
+      - key: DB_PORT
+        value: 5432
+      - key: JWT_SECRET
+        value: university_room_management_super_secret_key_2025_production_nezwavnslymfssrlsxbj
