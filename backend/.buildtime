@@ -1,0 +1,2 @@
+# Force Railway to rebuild by making a small change
+echo "Updated $(date)" > .buildtime
