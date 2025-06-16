@@ -1,4 +1,37 @@
 {
-  "name": "RoomApp",
-  "slug": "RoomApp"
+  "expo": {
+    "name": "University Room Management",
+    "slug": "university-room-management",
+    "version": "1.0.0",
+    "sdkVersion": "53.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#4CAF50"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.university.roommanagement"
+    },
+    "android": {
+      "package": "com.university.roommanagement",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#4CAF50"
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f590542f-45a9-4892-9b1f-1457e139da6b"
+      }
+    }
+  }
 }
